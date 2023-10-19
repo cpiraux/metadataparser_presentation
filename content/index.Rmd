@@ -132,7 +132,7 @@ With linked variables, it becomes possible to assess which variables might be in
 Linked variables contributes to traceability by identifying all SDTM variables used in derivations and aids in evaluating whether they can be retained in ADaM for datapoint traceability.
 
 ### Derivation
-Another outcome is the derivation extracted from the parsed 'adsl.R' program. To assess the accuracy of these derivations, we conducted a comparison with the derivation from the R Pilot 3 submission project. The detailed comparison is available in this <a href="compare Pilot3 and metadata parser.xlsx" target="_blank"> file </a>, and a more clean version is presented in the following tables.
+Another outcome is the derivation extracted from the parsed 'adsl.R' program. To assess the accuracy of these derivations, we conducted a comparison with the derivation from the R Pilot 3 submission project. The detailed comparison is available in this <a href="compare Pilot3 and metadata parser.xlsx" target="_blank"> file</a>, and a more clean version is presented in the following tables.
 
 In the specifications file from Pilot 3, a total of 36 derived variables were identified. Among them, 17 derivations are similar to the ones from the parser. For 5 variables, the derivations from the parser have a  greater precision. There are 5 instances of mismatched derivations. Additionally, 6 variables are associated with a 'transpose' function; however, the variable names could not be automatically detected, so they were manually linked to their respective derivations. Furthermore, 2 variables were found to utilize deprecated functions not present in the interpreter or the metadata from the parser. Lastly, there is one variable that relies on a user-defined function, with only the associated code extracted.
 
@@ -150,6 +150,7 @@ In the specifications file from Pilot 3, a total of 36 derived variables were id
 ```{r, echo = FALSE}
 library(DT)
 library(dplyr)
+
 load(file = "compare.Rda")
 
 columns2hide <- c("Type", "code.from.parser")
