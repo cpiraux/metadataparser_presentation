@@ -12,7 +12,7 @@ This project aimed to explore the feasibility of extracting variable derivations
 
 ## Resources
 
-In order to extract metadata information from a program, a parser is essential to dissect each element of the program. Additionally, well-documented functions are required to interpret the elements parsed by the parser effectively. The use of R and open-source packages fulfills all these essential conditions. 
+In order to extract metadata information from a program, a parser is essential to extract each element of the program. Additionally, well-documented functions are required to interpret the elements parsed by the parser effectively. The use of R and open-source packages fulfills all these essential conditions. 
 
 The following resources have been employed in this project:
 
