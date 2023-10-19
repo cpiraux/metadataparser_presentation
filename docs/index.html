@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Presentation</title>
+
+<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.28/datatables.js"></script>
+<link href="site_libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Metadata parser</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Presentation</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Presentation</h1>
+
+</div>
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This project aimed to explore the feasibility of extracting variable
+derivations from programs. Between the initial draft and the final
+program, numerous modifications occurred, resulting in extensive efforts
+to maintain specifications consistent with the program. It is possible
+that the final specification file may deviate from what is actually
+implemented in the program. Extracting derivation metadata directly from
+the program could help to ensure the accuracy and precision of the
+metadata.</p>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p>In order to extract metadata information from a program, a parser is
+essential to dissect each element of the program. Additionally,
+well-documented functions are required to interpret the elements parsed
+by the parser effectively. The use of R and open-source packages
+fulfills all these essential conditions.</p>
+<p>The following resources have been employed in this project:</p>
+<ul>
+<li>R parser:
+<ul>
+<li>parser()</li>
+<li>getParseData()</li>
+</ul></li>
+<li>Pharmaverse and dplyr packages</li>
+<li>submissions-pilot3-adam:
+<ul>
+<li><a href="adsl.txt" target="_blank"> adsl.R </a></li>
+<li><a href="TDF_ADaM - Pilot 3 Team updated.xlsx" > Specification file
+</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="process-overview" class="section level2">
+<h2>Process Overview</h2>
+<p><img src="figures/Process_overview.svg" ></p>
+</div>
+<div id="parser" class="section level2">
+<h2>Parser</h2>
+<p>The first step is to employ a parser to extract each token from the
+program. This task is accomplished through the utilization of both the
+parse() and getParseData() functions. As a result, we obtain a dataframe
+containing all tokens interconnected in the program.</p>
+<pre class="r"><code>ds00 &lt;- ds %&gt;%
+  filter(DSCAT == &quot;DISPOSITION EVENT&quot;, DSDECOD != &quot;SCREEN FAILURE&quot;) %&gt;%
+  derive_vars_dt(
+    dtc = DSSTDTC,
+    new_vars_prefix = &quot;EOS&quot;,
+    highest_imputation = &quot;n&quot;,
+  ) %&gt;%
+  mutate(
+    DISCONFL = ifelse(!is.na(EOSDT) &amp; DSDECOD != &quot;COMPLETED&quot;, &quot;Y&quot;, NA),
+    DSRAEFL = ifelse(DSTERM == &quot;ADVERSE EVENT&quot;, &quot;Y&quot;, NA),
+    DCDECOD = DSDECOD
+  ) %&gt;%
+  select(STUDYID, USUBJID, EOSDT, DISCONFL, DSRAEFL, DSDECOD, DSTERM, DCDECOD)</code></pre>
+<p>This figure illustrates the connections between all the tokens in the
+code above.</p>
+<p><a href="diag.html" target="_blank"><img src="figures/token.png" alt="image" width="100%"></a></p>
+<p>To utilize the information extracted by the parser, an additional
+object must be generated. This object will serve as an input for the
+interpreter and takes the form of a list. This list encompasses all
+functions from the parsed program along with their respective arguments
+and argument values.</p>
+<p><img src="figures/block_list_function.png" width="60%"></p>
+</div>
+<div id="interpreter" class="section level2">
+<h2>Interpreter</h2>
+<p>For each function within packages, every argument is categorized to
+identify input and output datasets, as well as input and output
+variables and their associated derivations.</p>
+<p><img src="figures/metadataparser_dtc_to_dt.svg" ></p>
+<p>To extract metadata from the parsed program, the list containing all
+the functions is processed by their respective functions. As an
+illustrative example, consider the code snippet below from the ‘adsl.R’
+program.</p>
+<pre class="r"><code>derive_vars_dt(
+  dtc = EXENDTC,
+  new_vars_prefix = &quot;EXEN&quot;,
+  highest_imputation = &quot;Y&quot;,
+  max_dates = exprs(EOSDT),
+  date_imputation = &quot;last&quot;,
+  flag_imputation = &quot;none&quot;
+) </code></pre>
+<p><img src="figures/metadataparser_dtc_to_dt_example.svg"></p>
+<p>This function is passed through the interpreter, resulting in the
+extraction of metadata.</p>
+<p><img src="figures/presentation_result.svg"></p>
+</div>
+<div id="linked-metadata" class="section level2">
+<h2>Linked metadata</h2>
+<p>The extraction of metadata for datasets and variables from the parsed
+‘adsl.R’ program is presently conducted in a function-by-function
+manner. As illustrated by the code example below, four functions are
+employed to transform ‘ds’ into ‘ds00.’ Within each of these functions,
+we can discern the input dataset, input variables, output variables,
+derivations, and accompanying code.</p>
+<pre class="r"><code>ds00 &lt;- ds %&gt;%
+  filter(DSCAT == &quot;DISPOSITION EVENT&quot;, DSDECOD != &quot;SCREEN FAILURE&quot;) %&gt;%
+  derive_vars_dt(
+    dtc = DSSTDTC,
+    new_vars_prefix = &quot;EOS&quot;,
+    highest_imputation = &quot;n&quot;,
+  ) %&gt;%
+  mutate(
+    DISCONFL = ifelse(!is.na(EOSDT) &amp; DSDECOD != &quot;COMPLETED&quot;, &quot;Y&quot;, NA),
+    DSRAEFL = ifelse(DSTERM == &quot;ADVERSE EVENT&quot;, &quot;Y&quot;, NA),
+    DCDECOD = DSDECOD
+  ) %&gt;%
+  select(STUDYID, USUBJID, EOSDT, DISCONFL, DSRAEFL, DSDECOD, DSTERM, DCDECOD)</code></pre>
+<p><img src="figures/link_from_function.svg"></p>
+<p>The ultimate phase involves linking datasets, variables, and
+derivations to achieve a complete data flow from SDTM to ADaM.</p>
+<p><img src="figures/link_from_function_part2.svg" width="70%"></p>
+</div>
+<div id="outcomes" class="section level2">
+<h2>Outcomes</h2>
+<div id="data-flow" class="section level3">
+<h3>Data Flow</h3>
+<p>One of the outcomes is the visualization of the data flow from SDTM
+to ADaM for datasets and variables.</p>
+<p>The graph below illustrates the connections among all the datasets
+used and created in ‘adsl.R.’. This graph facilitates the identification
+of SDTM datasets and enhances the understanding of the relationships
+between temporary datasets.</p>
+<p><a href="adsl_ds_graph.html" target="_blank"><img src="figures/adsl_ds_graph.png" alt="image" width="100%"></a></p>
+<p>The graph below illustrates the connections among all the variable
+used and created in ‘adsl.R.’.</p>
+<p><a href="adsl_var_graph.html" target="_blank"><img src="figures/adsl_var1.png" alt="image" width="100%"></a>
+<a href="adsl_var_graph.html" target="_blank"><img src="figures/adsl_var2.png" alt="image" width="100%"></a></p>
+<p>Linked variables enables the identification of the derivation
+pathway, encompassing all variables required for the derivation. The
+figure below illustrates the derivation path of AVGDD.</p>
+<p><img src="figures/AVGDD_derivation_path.png" width="40%"></p>
+<p>With linked variables, it becomes possible to assess which variables
+might be influenced by changes in other variables, as demonstrated here
+with TRTSDT.</p>
+<p><img src="figures/TRTSDT_impact.png" width="25%"></p>
+<p>Linked variables contributes to traceability by identifying all SDTM
+variables used in derivations and aids in evaluating whether they can be
+retained in ADaM for datapoint traceability.</p>
+</div>
+<div id="derivation" class="section level3">
+<h3>Derivation</h3>
+<p>Another outcome is the derivation extracted from the parsed ‘adsl.R’
+program. To assess the accuracy of these derivations, we conducted a
+comparison with the derivation from the R Pilot 3 submission project.
+The detailed comparison is available in this file, and a more clean
+version is presented in the following tables.</p>
+<p>In the specifications file from Pilot 3, a total of 36 derived
+variables were identified. Among them, 17 derivations are similar to the
+ones from the parser. For 5 variables, the derivations from the parser
+have a greater precision. There are 5 instances of mismatched
+derivations. Additionally, 6 variables are associated with a ‘transpose’
+function; however, the variable names could not be automatically
+detected, so they were manually linked to their respective derivations.
+Furthermore, 2 variables were found to utilize deprecated functions not
+present in the interpreter or the metadata from the parser. Lastly,
+there is one variable that relies on a user-defined function, with only
+the associated code extracted.</p>
+<table>
+<colgroup>
+<col width="73%" />
+<col width="26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Category</th>
+<th align="center">Number of Variables</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Similar derivation</td>
+<td align="center">17</td>
+</tr>
+<tr class="even">
+<td align="left">More precision from the parser</td>
+<td align="center">5</td>
+</tr>
+<tr class="odd">
+<td align="left">Mismatched</td>
+<td align="center">5</td>
+</tr>
+<tr class="even">
+<td align="left">Variable transposed</td>
+<td align="center">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Derivation using a user-defined function</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="left">Variables not extracted by the parser due to deprecated
+functions</td>
+<td align="center">2</td>
+</tr>
+</tbody>
+</table>
+<div id="match" class="section level4">
+<h4>Match</h4>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-0dd92d52e4409fd2418b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0dd92d52e4409fd2418b">{"x":{"filter":"none","vertical":false,"data":[["AGEGR1","AGEGR1N","AVGDD","BMIBL","BMIBLGR1","DISONSDT","DURDIS","DURDSGR1","EFFFL","MMSETOT","RACEN","RFENDT","TRT01A","TRT01P","TRT01PN","TRTDURD","VISIT1DT"],["Character variable derived from ADSL.AGEGR1N","AGEGR1 = 1 if AGE <65. AGEGR1 = 2 if AGE 65-80. AGEGR1 = 3 if AGE >80.","CUMDOSE/TRTDURD","WEIGHTBL / ((HEIGHTBL/100)**2)","BMIBLGR1=\"<25\" if . < BMIBL <25.\r\nBMIBLGR1=\"25-<30\" if 25 <=BMIBL <30.\r\nBMIBLGR1=\">=30\"if BMIBL >=30.","MH.MHSTDTC where MHCAT='PRIMARY DIAGNOSIS' converted to SAS date","number of months between VISIT1DT and DISONSET","grouping DURDIS values as <12 and >=12","Y if SAFFL='Y AND subject has at least one record in QS for ADAS-Cog with VISITNUM>3 AND at least one record in QS for CIBIC+ with VISITNUM>3, N otherwise","sum of QS.QSORRES values for the subject when QSCAT = MINI-MENTAL STATE","Numeric code for RACE","RFENDTC converted to SAS date","TRT01A=TRT01P, i.e., no difference between actual and randomized treatment in this study.","DM.ARM","Numeric code for TRT01P which corresponds to the randomized dose","TRTEDT-TRTSDT+1","SV.SVSTDTC when SV.VISITNUM=1, converted to SAS date"],["Derived base on AGEGR1 codelist values and AGE","Numeric version of AGEGR1","AVGDD = round_sas ( CUMDOSE / TRTDURD , digits = 1 )","BMIBL = round_sas ( WEIGHTBL / ( HEIGHTBL / 100 ) ^ 2 , digits = 1 )<br>From vs00<br>where ( VSTESTCD == \"HEIGHT\" & VISITNUM == 1 ) | ( VSTESTCD == \"WEIGHT\" & VISITNUM == 3 )","Derived base on BMIBLGR1 codelist values and BMIBL","MHSTDTC converted to a numeric date format.<br>From disonsdt<br>where MHCAT == \"PRIMARY DIAGNOSIS\"","VISIT1DT (days) - DISONSDT (days). If the duration is non-negative, one input unit is added. The input dates are round down with respect to the input unit, e.g., if the input unit is 'days', the time of the input dates is ignored.<br><br>DURDIS = round_sas ( DURDIS / ( 365.25 / 12 ) , digits = 1 )","Derived base on DURDSGR1 codelist values and DURDIS","EFFFL derivation:<br>EFFFL = case_when ( ARMCD != \"Scrnfail\" & ARMCD != \"\" & ! is.na ( TRTSDT ) & effcnt == 2 ~ \"Y\" , ARMCD == \"Scrnfail\" ~ NA_character_ , TRUE ~ \"N\" )<br><br>effcnt derivation:<br>n_distinct ( QSTESTCD ). Count unique combinations of QSTESTCD. Group by STUDYID, USUBJID<br><br>From eff<br>where VISITNUM > 3 & QSTESTCD %in% c ( \"CIBIC\" , \"ACTOT\" )","sum ( as.numeric ( QSORRES ) , na.rm = TRUE ). Sum of QSORRES. Group by STUDYID, USUBJID<br>From mmsetot<br>where QSCAT == \"MINI-MENTAL STATE\"","Numeric version of RACE","RFENDTC converted to a numeric date format.","TRT01A = TRT01P","TRT01P = ARM","TRT01PN = case_when ( ARM == \"Placebo\" ~ 0 , ARM == \"Xanomeline High Dose\" ~ 81 , ARM == \"Xanomeline Low Dose\" ~ 54 )","Number of days from start to end date plus one. TRTEDT - TRTSDT + 1","SVSTDTC converted to a numeric date format.<br>From visit1dt<br>where VISITNUM == 1"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Variable<\/th>\n      <th>Derivation Pilot 3<\/th>\n      <th>Derivation Parser<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"width":"40%","targets":[1,2]}],"pageLength":10,"lengthMenu":[5,10,15,20],"searching":false,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[-1]; $(row).css({'font-weight':'500','color':'black','background-color':'white','line-height':'85%','text-align':'left','font-size':'.875em'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="transpose" class="section level4">
+<h4>Transpose</h4>
+<p>Using a parser alone, it is not feasible to determine the variables
+that are generated when rows are transposed. This results in a broken
+data link, necessitating a manual intervention to establish connections
+between variables and their derivations.</p>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3d6092e4d556ed92f2b9" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3d6092e4d556ed92f2b9">{"x":{"filter":"none","vertical":false,"data":[["COMP16FL","COMP24FL","COMP8FL","EDUCLVL","HEIGHTBL","WEIGHTBL"],["Y if subject has a SV.VISITNUM=10 and ENDDT>=date of visit 10, N otherwise","Y if subject has a SV.VISITNUM=12 and ENDDT>= date of visit 12 , N otherwise","Y if subject has a SV.VISITNUM=8 and ENDDT >= date of visit 8, N otherwise","SC.SCSTRESN where SC.SCTESTCD=EDLEVEL","VSSTRESN when VS.VSTESTCD='HEIGHT' and VS.VISITNUM=1","VSSTRESN when VS.VSTESTCD='WEIGHT' and VS.VISITNUM=3"],["FLG derivation:<br>FLG = \"Y\"<br><br>VISITCMP derivation:<br>VISITCMP = case_when ( VISIT == \"WEEK 8\" ~ \"COMP8FL\" , VISIT == \"WEEK 16\" ~ \"COMP16FL\" , VISIT == \"WEEK 24\" ~ \"COMP24FL\" , TRUE ~ \"ZZZ\" # ensures every subject with one visit will get a row with minimally 'N' )<br><br>TRANSPOSE_VISITCMP<br>Transpose data from rows to columns.  By unique ID: all columns in data except for the columns specified in names_from and values_from. Values from FLG are transposed. Missing values are fill in with \"N\"<br><br>From sv00<br>order by STUDYID, USUBJID, VISITDY<br>Select distinct row for STUDYID, USUBJID, VISITCMP, FLG","FLG derivation:<br>FLG = \"Y\"<br><br>VISITCMP derivation:<br>VISITCMP = case_when ( VISIT == \"WEEK 8\" ~ \"COMP8FL\" , VISIT == \"WEEK 16\" ~ \"COMP16FL\" , VISIT == \"WEEK 24\" ~ \"COMP24FL\" , TRUE ~ \"ZZZ\" # ensures every subject with one visit will get a row with minimally 'N' )<br><br>TRANSPOSE_VISITCMP<br>Transpose data from rows to columns.  By unique ID: all columns in data except for the columns specified in names_from and values_from. Values from FLG are transposed. Missing values are fill in with \"N\"<br><br>From sv00<br>order by STUDYID, USUBJID, VISITDY<br>Select distinct row for STUDYID, USUBJID, VISITCMP, FLG","FLG derivation:<br>FLG = \"Y\"<br><br>VISITCMP derivation:<br>VISITCMP = case_when ( VISIT == \"WEEK 8\" ~ \"COMP8FL\" , VISIT == \"WEEK 16\" ~ \"COMP16FL\" , VISIT == \"WEEK 24\" ~ \"COMP24FL\" , TRUE ~ \"ZZZ\" # ensures every subject with one visit will get a row with minimally 'N' )<br><br>TRANSPOSE_VISITCMP<br>Transpose data from rows to columns.  By unique ID: all columns in data except for the columns specified in names_from and values_from. Values from FLG are transposed. Missing values are fill in with \"N\"<br><br>From sv00<br>order by STUDYID, USUBJID, VISITDY<br>Select distinct row for STUDYID, USUBJID, VISITCMP, FLG","Transpose data from rows to columns.  By unique ID: all columns in data except for the columns specified in names_from and values_from. Values from SCSTRESN are transposed.<br>From sc00<br>where SCTESTCD == \"EDLEVEL\"","TRANSPOSE_VSTESTCD derivation:<br>Transpose data from rows to columns.  By unique ID: all columns in data except for the columns specified in names_from and values_from. Values from AVAL are transposed.<br><br>AVAL derivation:<br>AVAL = round_sas ( VSSTRESN , digits = 1 )<br>From vs00<br>where ( VSTESTCD == \"HEIGHT\" & VISITNUM == 1 ) | ( VSTESTCD == \"WEIGHT\" & VISITNUM == 3 )","TRANSPOSE_VSTESTCD derivation:<br>Transpose data from rows to columns.  By unique ID: all columns in data except for the columns specified in names_from and values_from. Values from AVAL are transposed.<br><br>AVAL derivation:<br>AVAL = round_sas ( VSSTRESN , digits = 1 )<br>From vs00<br>where ( VSTESTCD == \"HEIGHT\" & VISITNUM == 1 ) | ( VSTESTCD == \"WEIGHT\" & VISITNUM == 3 )"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Variable<\/th>\n      <th>Derivation Pilot 3<\/th>\n      <th>Derivation Parser<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"width":"40%","targets":[1,2]}],"pageLength":10,"lengthMenu":[5,10,15,20],"searching":false,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[-1]; $(row).css({'font-weight':'500','color':'black','background-color':'white','line-height':'85%','text-align':'left','font-size':'.875em'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="precision" class="section level4">
+<h4>Precision</h4>
+<p>In the derivations obtained from the parser, we sometimes notice
+greater precision. For instance, consider the variable ‘ITTFL.’ In the
+Pilot 3 specifications, it is defined as Y if ARMCD ne ’ ‘. N otherwise
+However, from the parser, it is defined as Y if ARMCD ne’ ’ and ARMCD ne
+“Scrnfail”, Null if ARMCD eq “Scrnfail”, N otherwise</p>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-a3c351d2f9f3d0f7401a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-a3c351d2f9f3d0f7401a">{"x":{"filter":"none","vertical":false,"data":[["DCDECOD","ITTFL","SAFFL","TRT01AN","TRTEDT"],["DS.DSDECOD where DSCAT='DISPOSITION EVENT'","Y if ARMCD ne ' '. N otherwise","Y if ITTFL='Y' and TRTSDT ne missing. N otherwise","Numeric code for TRT01A which corresponds to the randomized dose","The date of final dose (from the CRF) is EX.EXENDTC on the subject's last EX record. If the date of final dose is missing for the subject and the subject discontinued after visit 3, use the date of discontinuation as the date of last dose. Convert the date to a SAS date."],["DCDECOD = DSDECOD<br>From ds00<br>where DSCAT == \"DISPOSITION EVENT\" & DSDECOD != \"SCREEN FAILURE\"","ITTFL = case_when ( ARMCD != \"Scrnfail\" & ARMCD != \"\" ~ \"Y\" , ARMCD == \"Scrnfail\" ~ NA_character_ , TRUE ~ \"N\" )","SAFFL = case_when ( ARMCD != \"Scrnfail\" & ARMCD != \"\" & ! is.na ( TRTSDT ) ~ \"Y\" , ARMCD == \"Scrnfail\" ~ NA_character_ , TRUE ~ \"N\" )","TRT01AN = TRT01PN","EXENDT derivation:<br>EXENDTC converted to a numeric date format.<br> Partial dates are imputed following these imputation rules:<br> If the day component is missing, then set date = last day of the month; If both the month and day are missing, then set date = 31th December; If the date is completely missing, then set date =  EOSDT <br> <br> Imputed date is not after any of the following dates: EOSDT<br><br>TRTEDT derivation:<br>TRTEDT = EXENDT<br> Merged by   STUDYID , USUBJID  <br> Where ( EXDOSE > 0 | ( EXDOSE == 0 & grepl ( \"PLACEBO\" , EXTRT , fixed = TRUE ) ) ) & ! is.na ( EXENDT )<br> \"last\" observation is selected <br> by   STUDYID , USUBJID  <br> order by   EXENDT , EXSEQ <br><br>From adsl00<br>where ACTARMCD != \"Scrnfail\""]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Variable<\/th>\n      <th>Derivation Pilot 3<\/th>\n      <th>Derivation Parser<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"width":"40%","targets":[1,2]}],"pageLength":10,"lengthMenu":[5,10,15,20],"searching":false,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[-1]; $(row).css({'font-weight':'500','color':'black','background-color':'white','line-height':'85%','text-align':'left','font-size':'.875em'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+<div id="mismatch" class="section level4">
+<h4>Mismatch</h4>
+<p>In certain instances, discrepancies exist between the derivations in
+the specifications and those obtained from the parser. In such cases, it
+is valuable to determine whether updates should be made to the
+specifications or the program.</p>
+<p>For instance, consider the variable ‘TRTSDT,’ which relies on visit
+dates from the ‘SV’ domains in the specifications. However, in the
+program, it utilizes ‘EX date’ to derive the treatment start date.</p>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-55511917e8d67a3fd6d3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-55511917e8d67a3fd6d3">{"x":{"filter":"none","vertical":false,"data":[["CUMDOSE","DISCONFL","DSRAEFL","TRTSDT","VISNUMEN"],["For ARMN=0 or 1: CUMDOSE=TRT01PN*TRTDUR. --- For ARMN=2: CUMDOSE will be based on 54mg per day for the # of days subj was in 1st dosing interval (i.e., visit4date-TRTSTDT+1 if 1st interval completed, TRTEDT-TRTSTDT+1 if subj discontinued <=visit 4 and > visit 3), 81mg per day for the # of days subj was in 2nd dosing interval (i.e., visit12date-visit4date if 2nd interval completed, TRTEDT-visit4date if subj discontinued <= visit 12 and > visit 4), and 54mg per day for the # of days subj was in 3rd dosing interval (i.e., TRTEDT - visit12date if subj continued after visit 12).","Y if DCREASCD ^= 'Completed'. Null otherwise","Y if DCREASCD='Adverse Event'. Null otherwise","SV.SVSTDTC when SV.VISITNUM=3, converted to SAS date","if DS.VISITNUM=13 where DSTERM='PROTCOL COMPLETED' then VISNUMEN=12, otherwise VISNUMEN=DS.VISITNUM where DSTERM='PROTCOL COMPLETED'"],["CUMDOSE derivation:<br>sum ( DOSE ). Sum of DOSE. Group by STUDYID, USUBJID, EXTRT<br><br>DOSE derivation:<br>DOSE = EXDOSE * ( EXENDT - EXSTDT + 1 )<br><br>EXENDT derivation:<br>EXENDTC converted to a numeric date format.<br> Partial dates are imputed following these imputation rules:<br> If the day component is missing, then set date = last day of the month; If both the month and day are missing, then set date = 31th December; If the date is completely missing, then set date =  EOSDT <br> <br> Imputed date is not after any of the following dates: EOSDT<br> Where DCDECOD != \"COMPLETED\"<br><br>EXSTDT derivation:<br>EXSTDTC converted to a numeric date format.","DISCONFL = ifelse ( ! is.na ( EOSDT ) & DSDECOD != \"COMPLETED\" , \"Y\" , NA )<br>From ds00<br>where DSCAT == \"DISPOSITION EVENT\" & DSDECOD != \"SCREEN FAILURE\"","DSRAEFL = ifelse ( DSTERM == \"ADVERSE EVENT\" , \"Y\" , NA )<br>From ds00<br>where DSCAT == \"DISPOSITION EVENT\" & DSDECOD != \"SCREEN FAILURE\"","EXSTDT derivation:<br>EXSTDTC converted to a numeric date format.<br><br>TRTSDT derivation:<br>TRTSDT = EXSTDT<br> Merged by   STUDYID , USUBJID  .<br> Where ( EXDOSE > 0 | ( EXDOSE == 0 & grepl ( \"PLACEBO\" , EXTRT , fixed = TRUE ) ) ) & ! is.na ( EXSTDT )<br> \"first\" observation is selected <br> by   STUDYID , USUBJID  <br> order by   EXSTDT , EXSEQ <br><br>From adsl00<br>where ACTARMCD != \"Scrnfail\"","VISNUMEN = ifelse ( round_sas ( VISITNUM , digits = 0 ) == 13 , 12 , round_sas ( VISITNUM , digits = 0 ) )<br>From visnumen<br>where VISITNUM < 100<br>order by STUDYID, USUBJID, SVSTDTC<br>Subset last row by STUDYID, USUBJID"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Variable<\/th>\n      <th>Derivation Pilot 3<\/th>\n      <th>Derivation Parser<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"width":"40%","targets":[1,2]}],"pageLength":10,"lengthMenu":[5,10,15,20],"searching":false,"order":[],"autoWidth":false,"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[-1]; $(row).css({'font-weight':'500','color':'black','background-color':'white','line-height':'85%','text-align':'left','font-size':'.875em'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="advantages" class="section level2">
+<h2>Advantages</h2>
+<div id="data-flow-1" class="section level3">
+<h3>Data Flow</h3>
+<ul>
+<li>Identification of input SDTM or ADaM domains.</li>
+<li>Visualization of the derivation path.</li>
+<li>Assessment of the impact on other variables when a variable
+changes.</li>
+<li>Enhanced data point traceability, including the retention of
+variables used for derivation in ADaM.</li>
+<li>Detection of variables that are derived but never used in the final
+ADaM.</li>
+</ul>
+</div>
+<div id="derivation-1" class="section level3">
+<h3>Derivation</h3>
+<ul>
+<li>More precise derivation metadata.</li>
+<li>More consistent specifications and program derivations.</li>
+<li>Extraction of the code used to derive a variable, enabling tracking
+of code changes specific to a variable and verification of spec updates
+when the program is modified.</li>
+</ul>
+</div>
+</div>
+<div id="challenges" class="section level2">
+<h2>Challenges</h2>
+<ul>
+<li>As this parser interprets R functions from R packages, it is
+essential for the parser to align with the package version, manage
+deprecated functions, and accommodate changes in function
+parameters.</li>
+<li>Describing all the functions of a package can be a time-consuming
+task.</li>
+<li>The transposition of datasets can break the link between variables
+because the parser may not be able to identify the variables created by
+the transpose function.</li>
+<li>How to extract information when the program includes user-defined
+functions?</li>
+</ul>
+<pre class="r"><code>format_bmiblgr1 &lt;- function(BMI) {
+  case_when(
+    BMI &lt; 25 ~ &quot;&lt;25&quot;,
+    BMI &lt; 30 ~ &quot;25-&lt;30&quot;,
+    BMI &gt;= 30 ~ &quot;&gt;=30&quot;,
+    TRUE ~ NA_character_
+  )
+}
+
+# BMI
+adsl13 &lt;- adsl12 %&gt;%
+  mutate(
+    HEIGHTBL = round(HEIGHTBL, digits = 1),
+    WEIGHTBL = round(WEIGHTBL, digits = 1),
+    BMIBL = round(WEIGHTBL / ((HEIGHTBL/100)**2), digits = 1),
+    BMIBLGR1 = format_bmiblgr1(BMIBL)
+         )</code></pre>
+<ul>
+<li>Managing various programming styles and approaches can be complex:
+<ul>
+<li><code>adsl07[, "TRT01AN"] &lt;- adsl06[, "TRT01PN"]</code></li>
+<li><code>adsl07 &lt;- mutate(adsl06, TRT01AN = TRT01PN)</code></li>
+<li><code>adsl07 &lt;- adsl06 %&gt;% mutate(TRT01AN = TRT01PN))</code></li>
+</ul></li>
+</ul>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

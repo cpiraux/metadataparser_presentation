@@ -1,0 +1,17 @@
+name: "Metadata parser"
+output_dir: "../docs"
+navbar:
+  title: "Metadata parser"
+  type: inverse
+  left:
+    -  text: "Presentation"
+       href: index.html
+       
+
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    css: styles.css
+  
+  
